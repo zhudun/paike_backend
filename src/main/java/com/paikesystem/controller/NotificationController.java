@@ -51,7 +51,7 @@ public class NotificationController {
     @GetMapping("/recipient/{recipientId}/count/unread")
     public ResponseEntity<?> getUnreadCount(@PathVariable Long recipientId) {
         int count = notificationService.countUnreadByRecipientId(recipientId);
-        return ResponseEntity.ok(Map.of("count", count));
+        return ResponseEntity.ok(java.util.Collections.singletonMap("count", count));
     }
     
     @PostMapping
@@ -60,7 +60,7 @@ public class NotificationController {
             Notification newNotification = notificationService.createNotification(notification);
             return ResponseEntity.ok(newNotification);
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body(Map.of("error", e.getMessage()));
+            return ResponseEntity.badRequest().body(java.util.Collections.singletonMap("error", e.getMessage()));
         }
     }
     
@@ -71,7 +71,7 @@ public class NotificationController {
             Notification updatedNotification = notificationService.updateNotification(notification);
             return ResponseEntity.ok(updatedNotification);
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body(Map.of("error", e.getMessage()));
+            return ResponseEntity.badRequest().body(java.util.Collections.singletonMap("error", e.getMessage()));
         }
     }
     
@@ -79,9 +79,9 @@ public class NotificationController {
     public ResponseEntity<?> markAsRead(@PathVariable Long id) {
         try {
             notificationService.markAsRead(id);
-            return ResponseEntity.ok(Map.of("message", "通知已标记为已读"));
+            return ResponseEntity.ok(java.util.Collections.singletonMap("message", "通知已标记为已读"));
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body(Map.of("error", e.getMessage()));
+            return ResponseEntity.badRequest().body(java.util.Collections.singletonMap("error", e.getMessage()));
         }
     }
     
@@ -89,9 +89,9 @@ public class NotificationController {
     public ResponseEntity<?> markAllAsRead(@PathVariable Long recipientId) {
         try {
             notificationService.markAllAsRead(recipientId);
-            return ResponseEntity.ok(Map.of("message", "所有通知已标记为已读"));
+            return ResponseEntity.ok(java.util.Collections.singletonMap("message", "所有通知已标记为已读"));
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body(Map.of("error", e.getMessage()));
+            return ResponseEntity.badRequest().body(java.util.Collections.singletonMap("error", e.getMessage()));
         }
     }
     
@@ -99,9 +99,9 @@ public class NotificationController {
     public ResponseEntity<?> deleteNotification(@PathVariable Long id) {
         try {
             notificationService.deleteNotification(id);
-            return ResponseEntity.ok(Map.of("message", "通知删除成功"));
+            return ResponseEntity.ok(java.util.Collections.singletonMap("message", "通知删除成功"));
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body(Map.of("error", e.getMessage()));
+            return ResponseEntity.badRequest().body(java.util.Collections.singletonMap("error", e.getMessage()));
         }
     }
 }

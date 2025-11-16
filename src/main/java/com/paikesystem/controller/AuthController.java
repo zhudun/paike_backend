@@ -31,7 +31,7 @@ public class AuthController {
             
             return ResponseEntity.ok(response);
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body(Map.of("error", e.getMessage()));
+            return ResponseEntity.badRequest().body(java.util.Collections.singletonMap("error", e.getMessage()));
         }
     }
     
@@ -50,7 +50,7 @@ public class AuthController {
             
             return ResponseEntity.ok(response);
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body(Map.of("error", e.getMessage()));
+            return ResponseEntity.badRequest().body(java.util.Collections.singletonMap("error", e.getMessage()));
         }
     }
     
@@ -62,7 +62,7 @@ public class AuthController {
             User updatedUser = userService.updateProfile(userId, user);
             return ResponseEntity.ok(updatedUser);
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body(Map.of("error", e.getMessage()));
+            return ResponseEntity.badRequest().body(java.util.Collections.singletonMap("error", e.getMessage()));
         }
     }
     
@@ -75,9 +75,9 @@ public class AuthController {
             String newPassword = passwordRequest.get("newPassword");
             
             userService.changePassword(userId, oldPassword, newPassword);
-            return ResponseEntity.ok(Map.of("message", "密码修改成功"));
+            return ResponseEntity.ok(java.util.Collections.singletonMap("message", "密码修改成功"));
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body(Map.of("error", e.getMessage()));
+            return ResponseEntity.badRequest().body(java.util.Collections.singletonMap("error", e.getMessage()));
         }
     }
 }

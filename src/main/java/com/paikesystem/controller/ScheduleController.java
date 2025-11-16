@@ -72,7 +72,7 @@ public class ScheduleController {
             Schedule newSchedule = scheduleService.createSchedule(schedule);
             return ResponseEntity.ok(newSchedule);
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body(Map.of("error", e.getMessage()));
+            return ResponseEntity.badRequest().body(java.util.Collections.singletonMap("error", e.getMessage()));
         }
     }
     
@@ -83,7 +83,7 @@ public class ScheduleController {
             Schedule updatedSchedule = scheduleService.updateSchedule(schedule);
             return ResponseEntity.ok(updatedSchedule);
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body(Map.of("error", e.getMessage()));
+            return ResponseEntity.badRequest().body(java.util.Collections.singletonMap("error", e.getMessage()));
         }
     }
     
@@ -91,9 +91,9 @@ public class ScheduleController {
     public ResponseEntity<?> deleteSchedule(@PathVariable Long id) {
         try {
             scheduleService.deleteSchedule(id);
-            return ResponseEntity.ok(Map.of("message", "课程安排删除成功"));
+            return ResponseEntity.ok(java.util.Collections.singletonMap("message", "课程安排删除成功"));
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body(Map.of("error", e.getMessage()));
+            return ResponseEntity.badRequest().body(java.util.Collections.singletonMap("error", e.getMessage()));
         }
     }
 }

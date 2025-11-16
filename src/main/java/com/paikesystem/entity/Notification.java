@@ -1,8 +1,11 @@
 package com.paikesystem.entity;
 
+import lombok.Data;
+
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+@Data
 public class Notification extends BaseEntity {
     
     private Long id;
@@ -34,6 +37,8 @@ public class Notification extends BaseEntity {
     // 关联对象（查询时填充）
     private User sender;
     private User recipient;
+
+    private Boolean isRead;
     
     // Constructors
     public Notification() {}

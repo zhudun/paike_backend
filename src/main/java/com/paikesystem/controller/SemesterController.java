@@ -45,7 +45,7 @@ public class SemesterController {
             Semester newSemester = semesterService.createSemester(semester);
             return ResponseEntity.ok(newSemester);
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body(Map.of("error", e.getMessage()));
+            return ResponseEntity.badRequest().body(java.util.Collections.singletonMap("error", e.getMessage()));
         }
     }
     
@@ -56,7 +56,7 @@ public class SemesterController {
             Semester updatedSemester = semesterService.updateSemester(semester);
             return ResponseEntity.ok(updatedSemester);
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body(Map.of("error", e.getMessage()));
+            return ResponseEntity.badRequest().body(java.util.Collections.singletonMap("error", e.getMessage()));
         }
     }
     
@@ -64,9 +64,9 @@ public class SemesterController {
     public ResponseEntity<?> activateSemester(@PathVariable Long id) {
         try {
             semesterService.setActiveSemester(id);
-            return ResponseEntity.ok(Map.of("message", "学期激活成功"));
+            return ResponseEntity.ok(java.util.Collections.singletonMap("message", "学期激活成功"));
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body(Map.of("error", e.getMessage()));
+            return ResponseEntity.badRequest().body(java.util.Collections.singletonMap("error", e.getMessage()));
         }
     }
     
@@ -74,9 +74,9 @@ public class SemesterController {
     public ResponseEntity<?> deleteSemester(@PathVariable Long id) {
         try {
             semesterService.deleteSemester(id);
-            return ResponseEntity.ok(Map.of("message", "学期删除成功"));
+            return ResponseEntity.ok(java.util.Collections.singletonMap("message", "学期删除成功"));
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body(Map.of("error", e.getMessage()));
+            return ResponseEntity.badRequest().body(java.util.Collections.singletonMap("error", e.getMessage()));
         }
     }
 }

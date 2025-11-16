@@ -1,7 +1,10 @@
 package com.paikesystem.entity;
 
+import lombok.Data;
+
 import javax.validation.constraints.NotNull;
 
+@Data
 public class Schedule extends BaseEntity {
     
     private Long id;
@@ -38,6 +41,10 @@ public class Schedule extends BaseEntity {
     private Teacher teacher;
     private Class clazz;
     private Classroom classroom;
+
+    private Integer dayOfWeek;
+    private String startTime;
+    private String endTime;
     
     // Constructors
     public Schedule() {}
