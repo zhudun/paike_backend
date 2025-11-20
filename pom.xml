@@ -89,8 +89,8 @@
         <!-- JSON处理 -->
         <dependency>
             <groupId>com.alibaba</groupId>
-            <artifactId>fastjson2</artifactId>
-            <version>${fastjson.version}</version>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.83</version>
         </dependency>
 
         <!-- 工具类 -->
